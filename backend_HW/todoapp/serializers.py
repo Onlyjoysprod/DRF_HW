@@ -1,6 +1,6 @@
 from todoapp.models import Project, Note
 
-from rest_framework.serializers import HyperlinkedModelSerializer
+from rest_framework.serializers import HyperlinkedModelSerializer, ModelSerializer
 
 
 class ProjectModelSerializer(HyperlinkedModelSerializer):
