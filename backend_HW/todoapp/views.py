@@ -1,10 +1,11 @@
 from rest_framework.generics import get_object_or_404
 from rest_framework.viewsets import ModelViewSet
 from rest_framework.response import Response
+from rest_framework.pagination import LimitOffsetPagination
+
 from .serializers import ProjectModelSerializer, NoteModelSerializer
 from .models import Project, Note
 from .filters import ProjectFilter
-from rest_framework.pagination import LimitOffsetPagination
 
 
 class ProjectLimitOffsetPagination(LimitOffsetPagination):
