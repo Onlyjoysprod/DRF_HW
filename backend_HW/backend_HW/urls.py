@@ -23,6 +23,7 @@ from drf_yasg.views import get_schema_view
 from drf_yasg import openapi
 from users.views import UserGenericViewSet
 from todoapp.views import ProjectModelViewSet, NoteModelViewSet
+from graphene_django.views import GraphQLView
 
 router = DefaultRouter()
 router.register('users', UserGenericViewSet)
@@ -47,5 +48,6 @@ urlpatterns = [
     path('api-auth/', include('rest_framework.urls')),
     path('api-auth-token/', obtain_auth_token),
     path('swagger/', schema_view.with_ui()),
+    path('graphql/', GraphQLView.as_view(graphiql=True)),
     re_path(r'^swagger(?P<format>\.json|\.yaml)', schema_view.without_ui()),
 ]
