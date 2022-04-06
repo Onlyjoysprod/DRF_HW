@@ -1,4 +1,4 @@
-const NoteItem = ({note}) => {
+const NoteItem = ({note, deleteNote}) => {
     return (
         <tr>
             <td>
@@ -19,11 +19,14 @@ const NoteItem = ({note}) => {
             <td>
                 {note.is_active}
             </td>
+            <td>
+                <button onClick={()=>deleteNote(note.id)}>Delete</button>
+            </td>
         </tr>
     )
 }
 
-const NoteList = ({notes}) => {
+const NoteList = ({notes, deleteNote}) => {
     return (
         <table>
             <th>
@@ -44,7 +47,7 @@ const NoteList = ({notes}) => {
             <th>
                 Is active
             </th>
-            {notes.map((note) => <NoteItem note={note} />)}
+            {notes.map((note) => <NoteItem note={note} deleteNote={deleteNote} />)}
         </table>
     )
 }
